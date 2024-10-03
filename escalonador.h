@@ -6,7 +6,7 @@ using namespace std;
 class Scheduling {
     private:
         struct Job{
-            int beggin, finish, profit;
+            int begin, finish, profit;
         };
 
         int binary_search(Job listJobs[], int i);

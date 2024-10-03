@@ -11,7 +11,7 @@ JobSchedulling() possui assinatura idêntica à proposta pelo trabalho.
 */
 
 struct Job{
-    int beggin, finish, profit;
+    int begin, finish, profit;
 };
 
 static bool jobCompare(Job a, Job b) {
@@ -24,8 +24,8 @@ int binary_search(Job listJobs[], int i) {
 
     while (start <= end) {
         int middle = (start + end) / 2;
-        if (listJobs[middle].finish <= listJobs[i].beggin) {
-            if (listJobs[middle + 1].finish <= listJobs[i].beggin) {
+        if (listJobs[middle].finish <= listJobs[i].begin) {
+            if (listJobs[middle + 1].finish <= listJobs[i].begin) {
                 start = middle + 1;
             } else {
                 return middle;
