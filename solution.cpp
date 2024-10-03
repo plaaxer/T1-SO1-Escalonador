@@ -50,12 +50,20 @@ int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& pro
     int currentProfit = 0;
 
     for (int i = 1; i < n; i++) {
+
         currentProfit = listJobs[i].profit;
+
         int previousJob = binary_search(listJobs, i);
+
         if (previousJob != -1) {
             currentProfit += listJobs[previousJob].profit;
+            } 
+
+        if (currentProfit > listJobs[i - 1].profit) {
+            listJobs[i].profit = currentProfit;
+        } else {
+            listJobs[i].profit = listJobs[i - 1].profit;
         }
-        listJobs[i].profit = max(currentProfit, listJobs[i - 1].profit);
     }
-    return listJobs[n - 1].profit;
+    return listJobs[n-1].profit;
 }
