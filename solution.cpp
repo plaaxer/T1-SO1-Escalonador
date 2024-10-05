@@ -38,7 +38,26 @@ int binary_search(Job listJobs[], int i) {
 }
 
 int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
+
+    if (startTime.size() != endTime.size() || startTime.size() != profit.size()) {
+        return 0;
+    }
+
     int n = startTime.size();
+
+    if (n == 0) {
+        return 0;
+    }
+
+    for (int index = 0; index < n; index++) {
+        if (startTime[index] < 0 || endTime[index] < 0 || profit[index] < 0) {
+            return 0;
+        }
+        if (startTime[index] > endTime[index]) {
+            return 0;
+        }
+    }
+
     Job listJobs[n];
 
     for (int i = 0; i < n; i++) {
